@@ -17,6 +17,11 @@ func GlobalFlag() []cli.Flag {
 			Value:   false,
 			EnvVars: []string{constant.EnvKeyCliVerbose},
 		},
+		&cli.BoolFlag{
+			Name:  constant.NameInit,
+			Usage: "init subcommand for project ",
+			Value: false,
+		},
 	}
 }
 

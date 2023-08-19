@@ -3,7 +3,7 @@ package cli
 import (
 	"fmt"
 	"github.com/convention-change/zymosis/command"
-	"github.com/convention-change/zymosis/command/subcommand_new"
+	"github.com/convention-change/zymosis/command/subcommand_go_init"
 	"github.com/convention-change/zymosis/internal/pkgJson"
 	"github.com/convention-change/zymosis/internal/urfave_cli"
 	"github.com/convention-change/zymosis/internal/urfave_cli/cli_exit_urfave"
@@ -47,7 +47,7 @@ func NewCliApp() *cli.App {
 	app.After = command.GlobalAfterAction
 
 	var appCommands []*cli.Command
-	appCommands = urfave_cli.UrfaveCliAppendCliCommand(appCommands, subcommand_new.Command())
+	appCommands = urfave_cli.UrfaveCliAppendCliCommand(appCommands, subcommand_go_init.Command())
 
 	app.Commands = appCommands
 

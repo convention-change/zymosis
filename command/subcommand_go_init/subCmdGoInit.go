@@ -3,6 +3,7 @@ package subcommand_go_init
 import (
 	"github.com/bar-counter/slog"
 	"github.com/convention-change/zymosis/command"
+	"github.com/convention-change/zymosis/command/git_command"
 	"github.com/convention-change/zymosis/internal/urfave_cli"
 	"github.com/urfave/cli/v2"
 )
@@ -13,7 +14,9 @@ var commandEntry *GolangCommand
 
 type GolangCommand struct {
 	isDebug bool
-	isInit  bool
+
+	isInit     bool
+	gitCommand git_command.GitCommand
 }
 
 func (n *GolangCommand) Exec() error {
@@ -37,9 +40,18 @@ func withEntry(c *cli.Context) (*GolangCommand, error) {
 	if c.Bool("lib") {
 		slog.Info("new lib mode")
 	}
+
+	gitCommand, err := git_command.BindGitFlag(c)
+	if err != nil {
+		return nil, err
+	}
+
 	globalEntry := command.CmdGlobalEntry()
+
 	return &GolangCommand{
 		isDebug: globalEntry.Verbose,
+
+		gitCommand: gitCommand,
 
 		isInit: globalEntry.RootCfg.IsInit,
 	}, nil
@@ -62,7 +74,7 @@ func Command() []*cli.Command {
 			Name:   commandName,
 			Usage:  "",
 			Action: action,
-			Flags:  flag(),
+			Flags:  urfave_cli.UrfaveCliAppendCliFlag(flag(), git_command.GitFlag()),
 		},
 	}
 }

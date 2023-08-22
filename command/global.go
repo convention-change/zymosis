@@ -13,7 +13,8 @@ import (
 type GlobalConfig struct {
 	LogLevel      string
 	TimeoutSecond uint
-	IsInit        bool
+
+	GenerateMode bool
 }
 
 type (
@@ -59,7 +60,7 @@ func withGlobalFlag(c *cli.Context, cliVersion, cliName string) (*GlobalCommand,
 		LogLevel:      c.String(constant.NameLogLevel),
 		TimeoutSecond: c.Uint(constant.NamePluginTimeOut),
 
-		IsInit: c.Bool(constant.NameInit),
+		GenerateMode: c.Bool(constant.NameGenerate),
 	}
 
 	p := GlobalCommand{

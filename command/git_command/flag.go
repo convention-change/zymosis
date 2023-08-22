@@ -57,10 +57,7 @@ func (g *gitCommandEntry) HeadBranchShort() string {
 
 func (g *gitCommandEntry) IsPathUnderGitManagement() bool {
 	_, err := git_info.IsPathGitManagementRoot(g.gitRootPath)
-	if err != nil {
-		return false
-	}
-	return true
+	return err == nil
 }
 
 func (g *gitCommandEntry) GitRootPath() string {

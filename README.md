@@ -56,10 +56,23 @@ $ go install -v github.com/convention-change/zymosis/cmd/zymosis@latest
 $ go install -v github.com/convention-change/zymosis/cmd/zymosis@v1.0.0
 ```
 
-- use this template, replace list below and add usage
-    - `github.com/convention-change/zymosis` to your package name
-    - `convention-change` to your owner name
-    - `zymosis` to your project name
+### golang project
+
+```bash
+# init project need code 
+$ zymosis init
+# if want update code, just use
+$ zymosis init --coverage-exist-file
+
+# then before CI or release binary run as
+$ zymosis -g go 
+```
+
+- use at go code show res mark code
+
+```go
+    fmt.Println(zymosis.MainProgramRes())
+```
 
 # dev
 

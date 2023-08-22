@@ -18,4 +18,8 @@ const (
 	NameLogLevel string = "config.log_level"
 
 	NameInit = "init"
+
+	NameGenerate = "generate"
+
+	NameCoverageExistFile = "coverage-exist-file"
 )

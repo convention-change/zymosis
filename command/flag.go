@@ -18,9 +18,10 @@ func GlobalFlag() []cli.Flag {
 			EnvVars: []string{constant.EnvKeyCliVerbose},
 		},
 		&cli.BoolFlag{
-			Name:  constant.NameInit,
-			Usage: "init subcommand for project ",
-			Value: false,
+			Name:    constant.NameGenerate,
+			Usage:   "generate mode",
+			Value:   false,
+			Aliases: []string{"g"},
 		},
 	}
 }

@@ -10,7 +10,7 @@ require (
 	github.com/sebdah/goldie/v2 v2.5.3
 	github.com/sinlov-go/go-common-lib v1.5.0
 	github.com/sinlov-go/go-git-tools v1.11.0
-	github.com/stretchr/testify v1.8.4
+	github.com/stretchr/testify v1.9.0
 	github.com/urfave/cli/v2 v2.27.1
 )
 

@@ -5,25 +5,12 @@
 [![goreportcard](https://goreportcard.com/badge/github.com/convention-change/zymosis)](https://goreportcard.com/report/github.com/convention-change/zymosis)
 
 [![GitHub license](https://img.shields.io/github/license/convention-change/zymosis)](https://github.com/convention-change/zymosis)
-[![codecov](https://codecov.io/gh/convention-change/zymosis/branch/main/graph/badge.svg)](https://codecov.io/gh/convention-change/zymosis)
 [![GitHub latest SemVer tag)](https://img.shields.io/github/v/tag/convention-change/zymosis)](https://github.com/convention-change/zymosis/tags)
 [![GitHub release)](https://img.shields.io/github/v/release/convention-change/zymosis)](https://github.com/convention-change/zymosis/releases)
-
 
 ## for what
 
 - this project used to cli with golang
-
-## Contributing
-
-[![Contributor Covenant](https://img.shields.io/badge/contributor%20covenant-v1.4-ff69b4.svg)](.github/CONTRIBUTING_DOC/CODE_OF_CONDUCT.md)
-[![GitHub contributors](https://img.shields.io/github/contributors/convention-change/zymosis)](https://github.com/convention-change/zymosis/graphs/contributors)
-
-We welcome community contributions to this project.
-
-Please read [Contributor Guide](.github/CONTRIBUTING_DOC/CONTRIBUTING.md) for more information on how to get started.
-
-请阅读有关 [贡献者指南](.github/CONTRIBUTING_DOC/zh-CN/CONTRIBUTING.md) 以获取更多如何入门的信息
 
 ## Features
 
@@ -209,3 +196,15 @@ func action(c *cli.Context) error {
 	return nil
 }
 ```
+
+
+## Contributing
+
+[![Contributor Covenant](https://img.shields.io/badge/contributor%20covenant-v1.4-ff69b4.svg)](.github/CONTRIBUTING_DOC/CODE_OF_CONDUCT.md)
+[![GitHub contributors](https://img.shields.io/github/contributors/convention-change/zymosis)](https://github.com/convention-change/zymosis/graphs/contributors)
+
+We welcome community contributions to this project.
+
+Please read [Contributor Guide](.github/CONTRIBUTING_DOC/CONTRIBUTING.md) for more information on how to get started.
+
+请阅读有关 [贡献者指南](.github/CONTRIBUTING_DOC/zh-CN/CONTRIBUTING.md) 以获取更多如何入门的信息

@@ -3,7 +3,7 @@
 # Author: convention-change
 # dockerfile offical document https://docs.docker.com/engine/reference/builder/
 # https://hub.docker.com/_/golang
-FROM golang:1.19.10-buster as builder
+FROM golang:1.19.13 as builder
 
 ARG GO_ENV_PACKAGE_NAME=github.com/convention-change/zymosis
 ARG GO_ENV_ROOT_BUILD_BIN_NAME=zymosis

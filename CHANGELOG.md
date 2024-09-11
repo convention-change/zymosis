@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [convention-change-log](https://github.com/convention-change/convention-change-log) for commit guidelines.
 
+## [1.1.2](https://github.com/convention-change/zymosis/compare/1.1.1...v1.1.2) (2024-09-11)
+
+### 👷‍ Build System
+
+* bump github.com/sinlov-go/unittest-kit from 1.1.1 to 1.2.1 ([3cc83e33](https://github.com/convention-change/zymosis/commit/3cc83e338a23c7c4b162cd2f60ea605f1c019f3b))
+
+* bump github.com/bar-counter/slog from 1.4.0 to 1.4.1 ([193a21ab](https://github.com/convention-change/zymosis/commit/193a21ababf3c13a2386e51531e3cca3acc791f3))
+
+* bump github.com/Masterminds/sprig/v3 from 3.2.1 to 3.3.0 ([ea7e8813](https://github.com/convention-change/zymosis/commit/ea7e8813fa9ec047ce69ff77bf5de4e61c45a9a1))
+
 ## [1.1.1](https://github.com/convention-change/zymosis/compare/1.1.0...v1.1.1) (2024-09-11)
 
 ### 🐛 Bug Fixes

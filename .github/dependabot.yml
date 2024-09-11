@@ -34,3 +34,4 @@ updates:
         versions:
           - "> 3.2.1"
       - dependency-name: golang.org/x/crypto
+      - dependency-name: golang.org/x/sys

@@ -42,12 +42,14 @@ func (n *GolangCommand) Exec() error {
 	if n.generateMode {
 
 		generateTargetPath := filepath.Join(n.GoCodePath, source.PathTargetGo())
-		dataRaw := []byte(n.gitCommand.HeadHashShort(n.lengthHashShort))
-		errWriteGenerate := filepath_plus.WriteFileByByte(generateTargetPath, dataRaw, os.FileMode(0766), true)
+		gitShortCode := n.gitCommand.HeadHashShort(n.lengthHashShort)
+		dataRaw := []byte(gitShortCode)
+		errWriteGenerate := filepath_plus.WriteFileByByte(generateTargetPath, dataRaw, os.FileMode(0o666), true)
 		if errWriteGenerate != nil {
 			return cli_exit_urfave.Err(errWriteGenerate)
 		}
 
+		slog.Infof("generate go source by git short hash: %s", gitShortCode)
 		slog.Infof("generate go source file at path: %s", generateTargetPath)
 		return nil
 	}
@@ -68,7 +70,7 @@ func (n *GolangCommand) Exec() error {
 				continue
 			}
 			dataRaw, errRaw := resource.Raw()
-			if errCheckResource != nil {
+			if errRaw != nil {
 				return cli_exit_urfave.Err(errRaw)
 			}
 			relativePath := resource.RelativePath()
@@ -77,14 +79,14 @@ func (n *GolangCommand) Exec() error {
 			pathResource := filepath.Join(rootPath, relativePath)
 
 			if !filepath_plus.PathExistsFast(pathResource) {
-				errWriteResource := filepath_plus.WriteFileByByte(pathResource, dataRaw, os.FileMode(0766), false)
+				errWriteResource := filepath_plus.WriteFileByByte(pathResource, dataRaw, os.FileMode(0o666), false)
 				if errWriteResource != nil {
 					return cli_exit_urfave.Err(errWriteResource)
 				}
 				slog.Infof("init go source file at path: %s", pathResource)
 			} else {
 				if n.isCoverageExitsFile {
-					errWriteResource := filepath_plus.WriteFileByByte(pathResource, dataRaw, os.FileMode(0766), true)
+					errWriteResource := filepath_plus.WriteFileByByte(pathResource, dataRaw, os.FileMode(0o666), true)
 					if errWriteResource != nil {
 						return cli_exit_urfave.Err(errWriteResource)
 					}

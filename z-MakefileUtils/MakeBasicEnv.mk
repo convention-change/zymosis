@@ -4,6 +4,7 @@
 ## feature:
 # - can fetch PLATFORM OS_BIT ENV_ROOT ENV_HOME_PATH ENV_NOW_TIME_FORMAT, from runner
 # - can fetch ENV_DIST_VERSION ENV_DIST_MARK , from CI/CD or git
+# - can change by env:ENV_CI_DIST_VERSION , env:ENV_CI_DIST_MARK , env:ENV_CI_DIST_CODE_MARK by CI setting
 ## task:
 # make envHelp
 # make envBasic
@@ -16,9 +17,12 @@ ifeq ($(OS),Windows_NT)
   OS_BIT?=$(shell echo `uname -m`) # x86_64 arm64
   # do windows powershell
   ENV_ROOT?=$(shell pwd)
-  ENV_HOME_PATH?=${shell echo %UserProfile%}
+  # ENV_HOME_PATH?=$(shell echo %UserProfile%)
+  ENV_HOME_PATH?=$(shell powershell -Command '$$HOME')
+  # ENV_HOME_PATH?=$(shell powershell [Environment]::GetFolderPath([Environment+SpecialFolder]::UserProfile))
   # ENV_NOW_TIME_FORMAT = $(shell echo %Date:~0,4%%Date:~5,2%%Date:~8,2%)
-  ENV_NOW_TIME_FORMAT=$(shell echo %Date:~0,4%-%Date:~5,2%-%Date:~8,2%-%time:~0,2%-%time:~3,2%-%time:~6,2%)
+  # ENV_NOW_TIME_FORMAT=$(shell echo %Date:~0,4%-%Date:~5,2%-%Date:~8,2%-%time:~0,2%-%time:~3,2%-%time:~6,2%)
+  ENV_NOW_TIME_FORMAT=$(shell powershell -Command Get-Date -Format "yyyy-MM-dd-HH-mm-ss")
 else
   OS_UNAME?=$(shell echo `uname`) # Linux Darwin
   OS_BIT?=$(shell echo `uname -m`) # x86_64 arm64
@@ -83,11 +87,7 @@ $(info -> change ENV_DIST_MARK by git)
     ENV_DIST_MARK=-$(strip $(shell git --no-pager rev-parse --short HEAD))
 endif
 
-# finally change by ENV_CI_DIST_MARK
-ifneq ($(strip $(ENV_CI_DIST_MARK)),)
-$(info -> change ENV_DIST_MARK by ENV_CI_DIST_MARK)
-    ENV_DIST_MARK=-${ENV_CI_DIST_MARK}
-endif
+ENV_DIST_CODE_MARK=$(subst -,,${ENV_DIST_MARK})
 
 # finally change by env ENV_CI_DIST_VERSION
 ifneq ($(strip $(ENV_CI_DIST_VERSION)),)
@@ -95,7 +95,19 @@ $(info -> change ENV_DIST_VERSION by ENV_CI_DIST_VERSION)
     ENV_DIST_VERSION=${ENV_CI_DIST_VERSION}
 endif
 
-.PHONY: envHelp
+# finally change by ENV_CI_DIST_MARK
+ifneq ($(strip $(ENV_CI_DIST_MARK)),)
+$(info -> change ENV_DIST_MARK by ENV_CI_DIST_MARK)
+    ENV_DIST_MARK=-${ENV_CI_DIST_MARK}
+endif
+
+# finally change by env ENV_CI_DIST_CODE_MARK
+ifneq ($(strip $(ENV_CI_DIST_CODE_MARK)),)
+$(info -> change ENV_DIST_VERSION by ENV_CI_DIST_CODE_MARK)
+    ENV_DIST_CODE_MARK=${ENV_CI_DIST_CODE_MARK}
+endif
+
+.PHONY: envBasic
 envBasic:
 	@echo ------- start show env basic---------
 	@echo ""
@@ -112,6 +124,7 @@ envBasic:
 envDistBasic:
 	@echo "ENV_DIST_VERSION :                        ${ENV_DIST_VERSION}"
 	@echo "ENV_DIST_MARK :                           ${ENV_DIST_MARK}"
+	@echo "ENV_DIST_CODE_MARK :                      ${ENV_DIST_CODE_MARK}"
 	@echo ""
 
 .PHONY: envHelp

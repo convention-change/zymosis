@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [convention-change-log](https://github.com/convention-change/convention-change-log) for commit guidelines.
 
+## [1.1.1](https://github.com/convention-change/zymosis/compare/1.1.0...v1.1.1) (2024-09-11)
+
+### 🐛 Bug Fixes
+
+* streamline git hash handling and file permission assignments ([50ee7426](https://github.com/convention-change/zymosis/commit/50ee7426b5145a1603a6c0ed0d185ada42f5884d)), fix [#28](https://github.com/convention-change/zymosis/issues/28)
+
+### 👷‍ Build System
+
+* bump go module and update gomod configuration ([17a05614](https://github.com/convention-change/zymosis/commit/17a056147501504a8e371e5f27f020bd2f31957d))
+
 ## [1.1.0](https://github.com/convention-change/zymosis/compare/1.0.0...v1.1.0) (2024-05-20)
 
 ### ✨ Features

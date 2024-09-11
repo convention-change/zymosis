@@ -3,7 +3,7 @@ module github.com/convention-change/zymosis
 go 1.19
 
 require (
-	github.com/Masterminds/sprig/v3 v3.3.0
+	github.com/Masterminds/sprig/v3 v3.2.1
 	github.com/aymerick/raymond v2.0.2+incompatible
 	github.com/bar-counter/slog v1.4.1
 	github.com/gookit/color v1.5.4
@@ -18,7 +18,7 @@ require (
 require (
 	dario.cat/mergo v1.0.1 // indirect
 	github.com/Masterminds/goutils v1.1.1 // indirect
-	github.com/Masterminds/semver/v3 v3.3.0 // indirect
+	github.com/Masterminds/semver/v3 v3.2.1 // indirect
 	github.com/Microsoft/go-winio v0.6.1 // indirect
 	github.com/ProtonMail/go-crypto v1.0.0 // indirect
 	github.com/chainguard-dev/git-urls v1.0.2 // indirect
@@ -33,6 +33,7 @@ require (
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/huandu/xstrings v1.5.0 // indirect
+	github.com/imdario/mergo v0.3.11 // indirect
 	github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99 // indirect
 	github.com/kevinburke/ssh_config v1.2.0 // indirect
 	github.com/mitchellh/copystructure v1.2.0 // indirect

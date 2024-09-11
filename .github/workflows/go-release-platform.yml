@@ -68,7 +68,7 @@ jobs:
         run: |
           go mod verify
           go mod download -x
-          go mod tidy -v
+          go mod tidy -v -go=1.19
           go mod vendor
           # Replace with the name of your binary
           binary_name=${{ env.DIST_BINARY_NAME }}

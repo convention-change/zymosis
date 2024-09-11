@@ -62,7 +62,7 @@ go.mod.verify:
 
 .PHONY: go.mod.tidy
 go.mod.tidy:
-	@go mod tidy -v
+	go mod tidy -v -go=1.19
 
 .PHONY: go.mod.download
 go.mod.download:

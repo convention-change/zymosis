@@ -182,6 +182,19 @@ else
 	${ENV_ROOT_BUILD_BIN_PATH} ${ENV_RUN_INFO_ARGS}
 endif
 
+.PHONY: devInstallLocal
+devInstallLocal: cleanBuild buildMain
+ifeq ($(shell go env GOPATH),)
+	$(error can not get go env GOPATH)
+endif
+ifeq ($(OS),Windows_NT)
+	$(info -> notes: install $(subst /,\,${ENV_GO_PATH}/bin/${ENV_ROOT_BUILD_BIN_NAME}.exe))
+	@cp $(subst /,\,${ENV_ROOT_BUILD_BIN_PATH}).exe $(subst /,\,${ENV_GO_PATH}/bin)
+else
+	$(info -> notes: install ${GOPATH}/bin/${ENV_ROOT_BUILD_BIN_NAME})
+	@cp ${ENV_ROOT_BUILD_BIN_PATH} ${ENV_GO_PATH}/bin
+endif
+
 .PHONY: runHelp
 runHelp: export CI_DEBUG=false
 runHelp:
@@ -225,6 +238,11 @@ endif
 	@echo "~> make buildMain            - build binary file"
 	@echo "~> make devHelp              - run local binary file args ${ENV_RUN_INFO_HELP_ARGS}"
 	@echo "~> make dev                  - run local binary file args ${ENV_RUN_INFO_ARGS}"
+ifeq ($(OS),Windows_NT)
+	@echo "~> make devInstallLocal     - install at $(subst /,\,${ENV_GO_PATH}/bin)"
+else
+	@echo "~> make devInstallLocal     - install at ${ENV_GO_PATH}/bin"
+endif
 	@echo "~> make runHelp              - run file with help args ${ENV_RUN_INFO_HELP_ARGS}"
 	@echo ""
 

@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [convention-change-log](https://github.com/convention-change/convention-change-log) for commit guidelines.
 
+## [1.1.3](https://github.com/convention-change/zymosis/compare/1.1.2...v1.1.3) (2024-09-11)
+
+### BREAKING CHANGE:
+
+* This commit changes the indirect dependencies' versions and
+
+### 🐛 Bug Fixes
+
+* update golang.org/x packages to newer versions ([5b28f88b](https://github.com/convention-change/zymosis/commit/5b28f88be5bdc1b6dd4216ffa57c03c208e27ba1))
+
+* downgrade Masterminds/sprig/v3 to 3.2.1 for compatibility ([d3f06896](https://github.com/convention-change/zymosis/commit/d3f06896857635f56e0ebf7e1359eef6795a15b6))
+
 ## [1.1.2](https://github.com/convention-change/zymosis/compare/1.1.1...v1.1.2) (2024-09-11)
 
 ### 👷‍ Build System

@@ -5,7 +5,7 @@ go 1.19
 require (
 	github.com/Masterminds/sprig/v3 v3.3.0
 	github.com/aymerick/raymond v2.0.2+incompatible
-	github.com/bar-counter/slog v1.4.0
+	github.com/bar-counter/slog v1.4.1
 	github.com/gookit/color v1.5.4
 	github.com/sebdah/goldie/v2 v2.5.5
 	github.com/sinlov-go/go-common-lib v1.7.1

@@ -11,7 +11,7 @@ require (
 	github.com/sinlov-go/go-common-lib v1.7.1
 	github.com/sinlov-go/go-git-tools v1.13.0
 	github.com/sinlov-go/unittest-kit v1.2.1
-	github.com/stretchr/testify v1.9.0
+	github.com/stretchr/testify v1.10.0
 	github.com/urfave/cli/v2 v2.27.4
 )
 

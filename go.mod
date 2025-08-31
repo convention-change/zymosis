@@ -6,7 +6,7 @@ require (
 	github.com/Masterminds/sprig/v3 v3.2.1
 	github.com/aymerick/raymond v2.0.2+incompatible
 	github.com/bar-counter/slog v1.4.1
-	github.com/gookit/color v1.5.4
+	github.com/gookit/color v1.6.0
 	github.com/sebdah/goldie/v2 v2.7.1
 	github.com/sinlov-go/go-common-lib v1.9.0
 	github.com/sinlov-go/go-git-tools v1.14.0
@@ -46,7 +46,7 @@ require (
 	github.com/skeema/knownhosts v1.3.1 // indirect
 	github.com/spf13/cast v1.7.0 // indirect
 	github.com/xanzy/ssh-agent v0.3.3 // indirect
-	github.com/xo/terminfo v0.0.0-20210125001918-ca9a967f8778 // indirect
+	github.com/xo/terminfo v0.0.0-20220910002029-abceb7e1c41e // indirect
 	github.com/xrash/smetrics v0.0.0-20240521201337-686a1a2994c1 // indirect
 	golang.org/x/crypto v0.38.0 // indirect
 	golang.org/x/net v0.40.0 // indirect
